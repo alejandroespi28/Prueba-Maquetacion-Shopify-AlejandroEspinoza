@@ -1,5 +1,5 @@
 // Agregar clase al enlace si se encuentra en su href (header)
-const links = document.querySelectorAll('.header-menu-link');
+let links = document.querySelectorAll('.header-menu-link');
 links.forEach(link => {
   if (link.href === window.location.href) {
     link.classList.add('active');
@@ -37,4 +37,21 @@ btns_toggle_menu.forEach((btn_toggle_menu) =>{
   btn_toggle_menu.addEventListener("click", function(){
     document.querySelector(".nav-list.list-menu").classList.toggle("showing_menu");
   })
+})
+
+
+// Agregar las redes sociales del footer en el menú mobile
+let execute_content = false;
+function add_social_media(){
+  if(window.innerWidth <= 674 && !execute_content){
+    const container_social_media_footer = document.querySelector(".social-media-container").cloneNode(true);
+    execute_content = true;
+    document.querySelector(".nav-list.list-menu").appendChild(container_social_media_footer);
+  } 
+}
+window.addEventListener("load", function(){
+  add_social_media();
+})
+window.addEventListener("resize", function(){
+  add_social_media();
 })

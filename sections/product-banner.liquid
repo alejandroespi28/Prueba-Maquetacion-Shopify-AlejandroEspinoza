@@ -1,4 +1,5 @@
-<section id="{{ section.id }}">
+<div id="historia" class="fade-up">
+  <script src="{{ 'slider-products.js' | asset_url }}" defer></script>
   <div class="products-image-container">
     <div class="iage-cover-container">
       <div class="image-container">
@@ -27,7 +28,7 @@
           {% assign count = 0 %}
           {% for collection in section.settings.category_section %}
             {% assign count = count | plus: 1 %}
-            <a class="swiper-slide" href="{{ collection.url }}" data-position-product="{{ count }}">
+            <a class="swiper-slide" href="#" data-position-product="{{ count }}">
               <picture>
                 <img src="{{ collection.images.first | image_url: width: '288px' }}">
               </picture>
@@ -37,7 +38,7 @@
       </div>
     </div>
   </div>
-</section>
+</div>
 {% schema %}
   {
     "name": "Carrusel productos-banner",
