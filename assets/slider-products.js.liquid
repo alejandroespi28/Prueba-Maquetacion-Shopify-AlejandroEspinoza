@@ -1,0 +1,20 @@
+// Ejecutamos el script para renderizar el carrusel a los productos
+  const swiper = new Swiper('.products-image-container .swiper', {
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    slidesPerView: 1.5,
+    spaceBetween: 0,
+    breakpoints: {
+        900: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 2.65,
+        }
+    }
+  });

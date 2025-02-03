@@ -1,0 +1,40 @@
+// Agregar clase al enlace si se encuentra en su href (header)
+const links = document.querySelectorAll('.header-menu-link');
+links.forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add('active');
+  }
+});
+  
+// Función para agregar la clase 'sticky' al navbar cuando se hace scroll
+const navbar = document.querySelector('.header-main-wrapper');
+const sticky = navbar.offsetTop;
+function stickyNavbar() {
+  if (window.pageYOffset > sticky) {
+    navbar.classList.add('sticky');
+  } else {
+    navbar.classList.remove('sticky');
+  }
+}
+
+// Ejecuta la función cuando el usuario hace scroll
+window.onscroll = function() {
+  stickyNavbar();
+};
+
+
+// Agregar clase al enlace si se encuentra en su href (footer)
+const links_footer = document.querySelectorAll('.footer-menu-link');
+links_footer.forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add('active');
+  }
+});
+
+// Función para abrir el menú en mobile
+const btns_toggle_menu = document.querySelectorAll(".activate_menu_mobile");
+btns_toggle_menu.forEach((btn_toggle_menu) =>{ 
+  btn_toggle_menu.addEventListener("click", function(){
+    document.querySelector(".nav-list.list-menu").classList.toggle("showing_menu");
+  })
+})

@@ -1,0 +1,43 @@
+<header class="container-header">
+    <div class="header-left">
+      <a href="/">
+        {{ section.settings.logo_site }}
+      </a>
+      <div class="header-menu">
+        <div class="menu-hamburguer-mobile activate_menu_mobile">
+          <a class="toggle-menu">
+            <svg class="icon-hamburger" width="25" height="25" viewBox="0 0 20 20" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 4h18M1 10h18M1 16h18" stroke="#fff"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="nav-list list-menu">
+          <div class="btn-close-menu activate_menu_mobile">X</div>
+          {%- for link in section.settings.menu_links.links -%}
+            <a class="header-menu-link header-label" href="{{ link.url }}">{{ link.title }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="header-label">ES</span>
+      <span class="header-label">EN</span>
+    </div>
+</header>
+{% schema %}
+  {
+    "name": "Header contenido",
+    "settings": [
+      {
+        "type": "liquid",
+        "id": "logo_site",
+        "label": "Agregue el logo del sitio (SVG)"
+      },
+      {
+        "type": "link_list",
+        "id": "menu_links",
+        "label": "Seleccione el menú"
+      }
+    ]
+  }
+{% endschema %}

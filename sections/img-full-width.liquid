@@ -1,0 +1,34 @@
+<section id="{{ section.id }}">
+  <div class="products-image-container">
+    <picture>
+      <source media="(max-width: 674px)" srcset="{{ section.settings.image_mobile | image_url: width: 674  }}" width="674px">
+      <source media="(max-width: 1024px)" srcset="{{ section.settings.image_desktop | image_url: width: 1024  }}" width="1024px">
+      <source media="(max-width: 1440px)" srcset="{{ section.settings.image_desktop | image_url: width: 1440  }}" width="1440px">
+      <img src="{{ section.settings.image_desktop | image_url: width: 1920  }}" width="1920px" class="img-responsive">
+    </picture>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Imagen fullwidth",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image_desktop",
+        "label": "Imagen desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Imagen mobile"
+      },
+    ],
+     "presets": [
+        {
+           "name": "Imagen completa"
+        }
+     ]
+  }
+{% endschema %}

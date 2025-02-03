@@ -1,0 +1,55 @@
+<section id="{{ section.id }}">
+  <div class="banner-content-container">
+    <div class="banner-image">
+      <picture>
+        <source media="(max-width:674px)" srcset="{{ section.settings.banner_bg_mobile | image_url: width:'670' }}">
+        <source media="(max-width:1024px)" srcset="{{ section.settings.banner_bg | image_url: width:'1200' }}">
+        <img class="img-responsive" src="{{ section.settings.banner_bg | image_url: width:'1920' }}" alt="Tennis imagen">
+      </picture>
+    </div>
+    <div class="banner-content">
+      <h1 class="title-banner">{{ section.settings.text_title }}</h1>
+      <a class="btn btn-transparent-white" href="{{ section.settings.url_btn.url }}">{{ section.settings.text_btn }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Imagen con contenido",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "banner_bg",
+        "label": "Imagen de fondo desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner_bg_mobile",
+        "label": "Imagen de fondo mobile"
+      },
+      {
+        "type": "textarea",
+        "id": "text_title",
+        "label": "Titulo banner"
+      },
+      {
+        "type": "text",
+        "id": "text_btn",
+        "label": "Texto botón"
+      },
+      {
+        "type": "url",
+        "id": "url_btn",
+        "label": "Url botón"
+      }
+    ],
+     "presets": [
+        {
+           "name": "Imagen con contenido"
+        }
+     ]
+  }
+{% endschema %}

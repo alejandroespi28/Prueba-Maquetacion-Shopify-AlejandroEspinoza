@@ -1,0 +1,59 @@
+<footer class="footer-container">
+  <div class="menu-socialmedia-container">
+    <div class="nav-footer-list">
+      {%- for link in section.settings.menu_links.links -%}
+        <a class="footer-menu-link footer-label" href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+    <div class="social-media-container">
+      {%- for social in section.blocks -%}
+        <a class="footer-menu-link footer-label" target="_blank" href="{{ social.settings.url_social_media }}">{{ social.settings.svg_social }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="logo-footer-container">
+    <a href="/">
+      {{ section.settings.logo_site }}
+    </a>
+  </div>
+</footer>
+{% schema %}
+  {
+    "name": "Footer contenido",
+    "settings": [
+      {
+        "type": "liquid",
+        "id": "logo_site",
+        "label": "Agregue el logo del sitio (SVG)"
+      },
+      {
+        "type": "link_list",
+        "id": "menu_links",
+        "label": "Seleccione el menú"
+      },
+    ],
+    "blocks": [
+      {
+        "type": "social_media",
+        "name": "Redes sociales",
+        "limit": 5,
+        "settings": [
+          {
+            "type": "header",
+            "content": "Agregue una red social"
+          },
+          {
+            "type": "liquid",
+            "id": "svg_social",
+            "label": "Agregue el logo en SVG"
+          },
+          {
+            "type": "url",
+            "id": "url_social_media",
+            "label": "Agregue el enlace de la red social"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

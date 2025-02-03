@@ -1,0 +1,74 @@
+<section id="{{ section.id }}">
+  <div class="products-image-container">
+    <div class="iage-cover-container">
+      <div class="image-container">
+        <picture>
+          <source media="(max-width:1290px)" srcset="{{ section.settings.image_bg | image_url: width: "474px" }}">
+          <img src="{{ section.settings.image_bg | image_url: width: "530px" }}">
+        </picture>
+      </div>
+      <div class="cover-content-category">
+        <h2 class="subtitle-section txt-white">{{ section.settings.titulo_section }}</h2>
+        <p class="text-general txt-white">{{ section.settings.description_section }}</p>
+        <div class="controls-slider-products">
+          <div class="swiper-pagination"></div>
+          <div class="swiper-container-buttons">
+            <div class="swiper-button swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="13px" viewBox="0 0 330 300"><path d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z"/></svg></div>
+            <div class="swiper-button swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="13px" viewBox="0 0 330 300"><path d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carrusel-products">
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          {% assign count = 0 %}
+          {% for collection in section.settings.category_section %}
+            {% assign count = count | plus: 1 %}
+            <a class="swiper-slide" href="{{ collection.url }}" data-position-product="{{ count }}">
+              <picture>
+                <img src="{{ collection.images.first | image_url: width: '288px' }}">
+              </picture>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Carrusel productos-banner",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image_bg",
+        "label": "Imagen de la izquierda"
+      },
+      {
+        "type": "textarea",
+        "id": "titulo_section",
+        "label": "Titulo de la sección"
+      },
+      {
+        "type": "textarea",
+        "id": "description_section",
+        "label": "Descripción de la sección"
+      },
+      {
+        "type": "product_list",
+        "id": "category_section",
+        "label": "Selecciona la categoria a mostrar"
+      },
+    ],
+     "presets": [
+        {
+           "name": "Carrusel de productos con banner"
+        }
+     ]
+  }
+{% endschema %}

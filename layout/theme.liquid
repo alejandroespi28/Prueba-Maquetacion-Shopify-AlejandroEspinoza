@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+    
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+    <title>
+      Tennis - Alejandro Espinoza
+    </title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    {{ content_for_header }}
+    <script src="{{ 'custom.js' | asset_url }}" defer></script>
+  </head>
+
+  <body>
+
+    <div class="header-main-wrapper">
+      {% sections 'header-new' %}
+    </div>
+
+    <main role="main">
+      {{ content_for_layout }}
+    </main>
+
+    <div class="footer-main-wrapper">
+      {% sections 'footer-new' %}
+    </div>
+    
+  </body>
+</html>
