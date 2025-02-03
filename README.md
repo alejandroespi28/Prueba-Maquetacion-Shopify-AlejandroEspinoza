@@ -1,5 +1,8 @@
 # Prueba Maquetacion Shopify AlejandroEspinoza
 
+URL: https://prueba-practica-getmore-ae.myshopify.com/
+Contraseña: GAER28
+
 # El proceso que se llevó a cabo para realizar el sitio fue:
 
 1.- Se creó la tienda con el tema default, se borraron todos los elementos del tema dejando solo lo necesario por Shopify para funcionar.
